@@ -1,14 +1,15 @@
 import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { LeadForm } from "@/components/lead-form";
 
 export const Route = createFileRoute("/")({ component: Home });
 
+const WHATSAPP = "https://wa.me/77026527347";
+
 const facts = [
-  { value: "длительность", label: "1 час" },
+  { value: "Длительность", label: "1 час" },
   { value: "Адрес", label: "Назарбаева 37" },
   { value: "Дата", label: "26 ноября, в 18:30" },
-  { value: "темы", label: "маркетинг, автоматизация, налогообложение" },
+  { value: "Темы", label: "маркетинг, автоматизация, налогообложение" },
 ];
 
 const shifts = [
@@ -20,7 +21,7 @@ const shifts = [
 const speakers = [
   {
     name: "Жасулан Алимбаев",
-    role: "Эксперт по рекламе и офферам. Показывает, как перестать платить за «цифровые аплодисменты» и начать получать заявки.",
+    role: "Маркетолог, 5 лет опыта, работал с бюджетами от 10 млн тенге в месяц, специализируется на рекламных кабинетах и работе с блогерами.",
     photo: "/speakers/zhasulan.jpg",
     position: "object-top",
   },
@@ -32,14 +33,35 @@ const speakers = [
   },
   {
     name: "Оксана Згардан",
-    role: "Эксперт по налогам и финансовой системе для малого бизнеса. Объясняет Налоговый кодекс 2026 года простым языком и показывает, как не терять прибыль.",
+    role: "Бухгалтер, 5 лет стажа, высшее экономическое образование, диплом ACCA DipIFR. Обучение финансов и бухгалтерии на реальных рабочих задачах.",
     photo: "/speakers/oksana-portrait.jpg",
     position: "object-top",
   },
 ];
 
 const ctaClass =
-  "inline-flex h-12 items-center justify-center rounded-full bg-blue px-7 text-base font-medium text-snow transition-opacity duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-night active:opacity-80";
+  "inline-flex h-12 items-center justify-center rounded-full bg-blue px-7 text-base font-medium text-snow transition-opacity duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 active:opacity-80";
+
+function BookLink({
+  children,
+  className,
+  offset = "night",
+}: {
+  children: string;
+  className?: string;
+  offset?: "night" | "paper";
+}) {
+  return (
+    <a
+      href={WHATSAPP}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${className ?? ctaClass} ${offset === "paper" ? "focus-visible:ring-offset-paper" : "focus-visible:ring-offset-night"}`}
+    >
+      {children}
+    </a>
+  );
+}
 
 function RevealOnScroll() {
   useEffect(() => {
@@ -75,12 +97,12 @@ function Home() {
           <a href="#top" className="text-sm font-medium text-snow">
             Караганда
           </a>
-          <a
-            href="#zayavka"
+          <BookLink
+            offset="night"
             className="inline-flex h-11 items-center rounded-full bg-blue px-4 text-sm font-medium text-snow"
           >
             Записаться
-          </a>
+          </BookLink>
         </div>
       </header>
 
@@ -101,14 +123,7 @@ function Home() {
               особенности налогообложения
             </p>
             <div className="rise mt-10" style={{ animationDelay: "240ms" }}>
-              <a
-                href="https://wa.me/77026527347"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={ctaClass}
-              >
-                Забронировать место
-              </a>
+              <BookLink>Забронировать место</BookLink>
             </div>
           </div>
         </section>
@@ -154,12 +169,14 @@ function Home() {
             <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-line md:grid-cols-4">
               {facts.map((fact, index) => (
                 <li
-                  key={fact.label}
+                  key={fact.value}
                   data-reveal
                   data-delay={index * 70}
-                  className="bg-snow px-5 py-6"
+                  className="bg-snow px-4 py-6 sm:px-5"
                 >
-                  <p className="text-2xl font-semibold tabular-nums text-ink">{fact.value}</p>
+                  <p className="text-lg font-semibold leading-tight tracking-tight text-ink sm:text-2xl">
+                    {fact.value}
+                  </p>
                   <p className="mt-1 text-sm text-quiet">{fact.label}</p>
                 </li>
               ))}
@@ -180,6 +197,9 @@ function Home() {
                 </li>
               ))}
             </ol>
+            <div data-reveal className="mt-10">
+              <BookLink>Забронировать место</BookLink>
+            </div>
           </div>
         </section>
 
@@ -213,8 +233,14 @@ function Home() {
         <section className="bg-paper px-6 py-20">
           <div className="mx-auto max-w-5xl">
             <h2 data-reveal className="text-4xl font-semibold text-ink sm:text-5xl">БОНУС</h2>
+            <p data-reveal className="mt-6 text-3xl font-semibold text-ink sm:text-4xl">
+              15{"\u00A0"}000 тенге с человека
+            </p>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
-              <article data-reveal className="cosmos relative overflow-hidden rounded-2xl p-8 text-snow">
+              <article
+                data-reveal
+                className="cosmos relative overflow-hidden rounded-2xl p-8 text-snow ring-2 ring-blue shadow-[0_18px_50px_rgba(0,113,227,0.28)]"
+              >
                 <div className="cosmos-sky" aria-hidden="true" />
                 <div className="cosmos-stars-far" aria-hidden="true" />
                 <div className="cosmos-stars" aria-hidden="true" />
@@ -227,21 +253,21 @@ function Home() {
                   </p>
                 </div>
               </article>
-              <article data-reveal data-delay={120} className="rounded-2xl bg-snow p-8 text-ink">
-                <p className="text-sm text-quiet">Дополнительно</p>
+              <article
+                data-reveal
+                data-delay={120}
+                className="rounded-2xl bg-snow p-8 text-ink ring-2 ring-blue shadow-[0_18px_50px_rgba(0,113,227,0.16)]"
+              >
+                <p className="text-sm font-medium text-blue">Дополнительно</p>
                 <h3 className="mt-3 text-2xl font-semibold">Материалы в Telegram</h3>
                 <p className="mt-3 leading-normal text-quiet">
                   После семинара вы получите дополнительные материалы в Telegram-боте.
                 </p>
               </article>
             </div>
-          </div>
-        </section>
-
-        <section id="zayavka" className="scroll-mt-20 bg-paper px-6 py-20">
-          <div data-reveal className="mx-auto max-w-xl">
-            <h2 className="text-4xl font-semibold text-ink sm:text-5xl">Забронировать место</h2>
-            <LeadForm />
+            <div data-reveal className="mt-10">
+              <BookLink offset="paper">Забронировать место</BookLink>
+            </div>
           </div>
         </section>
       </main>
