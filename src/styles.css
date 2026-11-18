@@ -177,16 +177,6 @@
   }
 }
 
-.marquee {
-  overflow: hidden;
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: partners-marquee 28s linear infinite;
-}
-
 .speakers-marquee {
   overflow: hidden;
 }
@@ -222,7 +212,6 @@
   .cosmos-sky,
   .cosmos-stars,
   .cosmos-stars-far,
-  .marquee-track,
   .speakers-track {
     animation: none;
   }
