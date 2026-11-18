@@ -129,39 +129,27 @@ function Home() {
           </div>
         </section>
 
-        <section className="overflow-hidden bg-snow py-8 text-ink">
+        <section className="bg-snow py-10 text-ink sm:py-12">
           <div className="mx-auto max-w-5xl px-6">
-            <h2 data-reveal className="text-xl font-semibold">
+            <h2 data-reveal className="text-center text-xl font-semibold">
               Наши партнёры
             </h2>
-          </div>
-          <div className="marquee mt-4">
-            <div className="marquee-track items-center">
-              {[0, 1].map((copy) => (
-                <div key={copy} className="flex items-center" aria-hidden={copy === 1}>
-                  <img
-                    src={publicAsset("/partners/growth-point-light.png")}
-                    alt={copy === 0 ? "Growth point" : ""}
-                    className="h-7 w-auto shrink-0 pr-12 sm:h-8"
-                  />
-                  <img
-                    src={publicAsset("/partners/astana-hub-light.png")}
-                    alt={copy === 0 ? "Astana Hub" : ""}
-                    className="h-6 w-auto shrink-0 pr-12 sm:h-7"
-                  />
-                  <img
-                    src={publicAsset("/partners/karaganda.png")}
-                    alt={copy === 0 ? "Караганда" : ""}
-                    className="h-12 w-auto shrink-0 pr-12 sm:h-14"
-                  />
-                  <img
-                    src={publicAsset("/partners/legal.png")}
-                    alt={copy === 0 ? "Палата юридических консультантов" : ""}
-                    className="h-9 w-auto shrink-0 pr-12 sm:h-10"
-                  />
-                </div>
-              ))}
-            </div>
+            <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 sm:mt-8 sm:gap-x-20">
+              <li>
+                <img
+                  src={publicAsset("/partners/karaganda.png")}
+                  alt="Караганда"
+                  className="h-14 w-auto sm:h-16"
+                />
+              </li>
+              <li>
+                <img
+                  src={publicAsset("/partners/legal.png")}
+                  alt="Палата юридических консультантов"
+                  className="h-10 w-auto max-w-[min(100%,18rem)] sm:h-12 sm:max-w-none"
+                />
+              </li>
+            </ul>
           </div>
         </section>
 
