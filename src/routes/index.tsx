@@ -235,13 +235,15 @@ function Home() {
           <div className="mx-auto max-w-5xl">
             <article
               data-reveal
-              className="rounded-3xl bg-night px-8 py-10 text-snow sm:px-12 sm:py-12"
+              className="rounded-3xl bg-night px-8 py-10 text-snow sm:px-12 sm:py-14"
             >
-              <h2 className="max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">
-                Стоимость участия — 15{"\u00A0"}000 тенге с человека
-              </h2>
-              <p className="mt-4 max-w-xl text-base leading-normal text-mist">
-                Один билет на воркшоп. Бонусы ниже уже входят в эту сумму.
+              <h2 className="text-3xl font-semibold sm:text-4xl">Стоимость участия</h2>
+              <p className="mt-6 whitespace-nowrap text-6xl font-semibold leading-none tracking-normal tabular-nums sm:text-8xl">
+                15 000
+              </p>
+              <p className="mt-4 text-xl font-medium text-snow sm:text-2xl">тенге с человека</p>
+              <p className="mt-6 max-w-xl text-base leading-normal text-mist">
+                Один билет на воркшоп. Бонусы ниже — в подарок участникам, бесплатно.
               </p>
               <div className="mt-8">
                 <BookLink>Забронировать место</BookLink>
@@ -254,7 +256,7 @@ function Home() {
           <div className="mx-auto max-w-5xl">
             <h2 data-reveal className="text-4xl font-semibold text-ink sm:text-5xl">Бонус</h2>
             <p data-reveal className="mt-4 max-w-2xl text-lg leading-normal text-quiet">
-              Включено в стоимость. Участник получает это дополнительно к воркшопу.
+              В подарок участникам. Бесплатно, дополнительно к воркшопу.
             </p>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               <article
@@ -265,7 +267,9 @@ function Home() {
                 <div className="cosmos-stars-far" aria-hidden="true" />
                 <div className="cosmos-stars" aria-hidden="true" />
                 <div className="relative z-10">
-                  <p className="text-sm text-snow">Отдельно от лекции</p>
+                  <p className="inline-flex rounded-full bg-snow/15 px-3 py-1 text-xs font-medium text-snow">
+                    Бесплатно
+                  </p>
                   <h3 className="mt-3 text-2xl font-semibold text-snow">Персональная консультация</h3>
                   <p className="mt-3 leading-normal text-snow">
                     После лекции можно разобрать вашу ситуацию лично: рекламу, заявки или финансы. Не
@@ -278,7 +282,9 @@ function Home() {
                 data-delay={120}
                 className="rounded-2xl bg-snow p-8 text-ink ring-2 ring-blue shadow-[0_18px_50px_rgba(0,113,227,0.16)]"
               >
-                <p className="text-sm font-medium text-blue">Дополнительно</p>
+                <p className="inline-flex rounded-full bg-blue/10 px-3 py-1 text-xs font-medium text-blue">
+                  В подарок участникам
+                </p>
                 <h3 className="mt-3 text-2xl font-semibold">Материалы в Telegram</h3>
                 <p className="mt-3 leading-normal text-quiet">
                   После семинара вы получите дополнительные материалы в Telegram-боте.
