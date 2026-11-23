@@ -15,6 +15,8 @@ export default tseslint.config(
       ".nitro/**",
       "node_modules/**",
       "src/routeTree.gen.ts",
+      // Vendored Revelios production build. Served as-is from GitHub Pages.
+      "public/revelios/**",
     ],
   },
   js.configs.recommended,
